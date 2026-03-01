@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpTra - Employee List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--sidebar-dark);
+        }
+
+        .data-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-inactive {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="user-avatar"><i class="fa-solid fa-user-circle"></i></div>
+                <div class="user-info">
+                    <div class="user-name">Sanjay Nichite</div>
+                    <div class="user-id">ID: 30001133</div>
+                    <div class="user-dept">Dept: Traffic</div>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="instruction_master.html" class="nav-link"><i class="fa-solid fa-book"></i>
+                        <span>Instruction Master</span></a></li>
+                <li class="nav-item"><a href="competency_check.html" class="nav-link"><i
+                            class="fa-solid fa-check-to-slot"></i> <span>Competency Check</span></a></li>
+                <li class="nav-item"><a href="to_counselling.html" class="nav-link"><i class="fa-solid fa-comments"></i>
+                        <span>TO Counselling</span></a></li>
+                <li class="nav-item"><a href="fault_analysis.html" class="nav-link"><i
+                            class="fa-solid fa-triangle-exclamation"></i> <span>Fault Analysis</span></a></li>
+                <li class="nav-item"><a href="to_performance.html" class="nav-link"><i
+                            class="fa-solid fa-chart-line"></i> <span>TO Performance</span></a></li>
+                <li class="nav-item"><a href="to_inspection.html" class="nav-link"><i
+                            class="fa-solid fa-clipboard-check"></i> <span>TO Inspection</span></a></li>
+                <li class="nav-item nav-header">REPORTS</li>
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link submenu-toggle submenu-open"><i class="fa-solid fa-chart-column"></i>
+                        <span>View Reports</span> <i class="fa-solid fa-chevron-down submenu-icon"
+                            style="margin-left: auto;"></i></a>
+                    <ul class="submenu-list" style="display: block;">
+                        <li class="nav-item"><a href="employee_list.html" class="nav-link active"><i
+                                    class="fa-regular fa-circle"></i> <span>Employee List</span></a></li>
+                        <li class="nav-item"><a href="to_competency_list.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>TO Competency</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack_sheet.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack Sheet</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-header">ACCOUNT</li>
+                <li class="nav-item"><a href="employee_profile.html" class="nav-link"><i class="fa-solid fa-user"></i>
+                        <span>Employee Profile</span></a></li>
+                <li class="nav-item"><a href="change_password.html" class="nav-link"><i class="fa-solid fa-key"></i>
+                        <span>Change Password</span></a></li>
+                <li class="nav-item mt-auto"><a href="index.html" class="nav-link text-danger"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Log Out</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left"><button class="menu-toggle" id="menu-toggle"><i
+                        class="fa-solid fa-bars"></i></button></div>
+            <div class="header-center">
+                <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img
+                        src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>OpTra</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-user"><span>Sanjay Nichite</span><i class="fa-solid fa-circle-user fa-lg"></i></div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="content-wrapper" id="main-content">
+            <div class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 class="page-title">Employee List Report</h1>
+                <button class="btn btn-primary"><i class="fa-solid fa-download"></i> Export CSV</button>
+            </div>
+
+            <div class="card">
+                <div class="form-row" style="margin-bottom: 2rem;">
+                    <div class="form-group half-width">
+                        <input type="text" placeholder="Search by ID or Name...">
+                    </div>
+                    <div class="form-group half-width" style="display: flex; gap: 1rem;">
+                        <select style="flex: 1;">
+                            <option>All Departments</option>
+                            <option>Traffic</option>
+                            <option>Maintenance</option>
+                        </select>
+                        <button class="btn btn-secondary">Filter</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>30001133</td>
+                            <td>Sanjay Nichite</td>
+                            <td>Traffic</td>
+                            <td>Train Operator</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>30001134</td>
+                            <td>Priya Sharma</td>
+                            <td>Maintenance</td>
+                            <td>Technician</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>30001135</td>
+                            <td>Rahul Desai</td>
+                            <td>Traffic</td>
+                            <td>Train Operator</td>
+                            <td><span class="status-badge status-inactive">On Leave</span></td>
+                        </tr>
+                        <tr>
+                            <td>30001136</td>
+                            <td>Amit Patel</td>
+                            <td>Traffic</td>
+                            <td>Station Controller</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>30001137</td>
+                            <td>Neha Gupta</td>
+                            <td>Maintenance</td>
+                            <td>Engineer</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

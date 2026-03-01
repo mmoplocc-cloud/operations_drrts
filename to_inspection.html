@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpTra - TO Inspection Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .inspection-section {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .inspection-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .inspection-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--sidebar-dark);
+        }
+
+        .inspection-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inspection-table th,
+        .inspection-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .inspection-table th {
+            background: #fff;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .inspection-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .inspection-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .score-input {
+            width: 100px;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .score-display {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        .total-row {
+            background: #f1f5f9;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <!-- Reusing sidebar structure -->
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="user-avatar"><i class="fa-solid fa-user-circle"></i></div>
+                <div class="user-info">
+                    <div class="user-name">Sanjay Nichite</div>
+                    <div class="user-id">ID: 30001133</div>
+                    <div class="user-dept">Dept: Traffic</div>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="instruction_master.html" class="nav-link"><i class="fa-solid fa-book"></i>
+                        <span>Instruction Master</span></a></li>
+                <li class="nav-item"><a href="competency_check.html" class="nav-link"><i
+                            class="fa-solid fa-check-to-slot"></i> <span>Competency Check</span></a></li>
+                <li class="nav-item"><a href="to_counselling.html" class="nav-link"><i class="fa-solid fa-comments"></i>
+                        <span>TO Counselling</span></a></li>
+                <li class="nav-item"><a href="fault_analysis.html" class="nav-link"><i
+                            class="fa-solid fa-triangle-exclamation"></i> <span>Fault Analysis</span></a></li>
+                <li class="nav-item"><a href="to_performance.html" class="nav-link"><i
+                            class="fa-solid fa-chart-line"></i> <span>TO Performance</span></a></li>
+                <li class="nav-item"><a href="to_inspection.html" class="nav-link active"><i
+                            class="fa-solid fa-clipboard-check"></i> <span>TO Inspection</span></a></li>
+                <li class="nav-item nav-header">REPORTS</li>
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> <span>View
+                            Reports</span> <i class="fa-solid fa-chevron-down submenu-icon"
+                            style="margin-left: auto;"></i></a>
+                    <ul class="submenu-list">
+                        <li class="nav-item"><a href="employee_list.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Employee List</span></a></li>
+                        <li class="nav-item"><a href="to_competency_list.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>TO Competency</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack_sheet.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack Sheet</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-header">ACCOUNT</li>
+                <li class="nav-item"><a href="employee_profile.html" class="nav-link"><i class="fa-solid fa-user"></i>
+                        <span>Employee Profile</span></a></li>
+                <li class="nav-item"><a href="change_password.html" class="nav-link"><i class="fa-solid fa-key"></i>
+                        <span>Change Password</span></a></li>
+                <li class="nav-item mt-auto"><a href="index.html" class="nav-link text-danger"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Log Out</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left"><button class="menu-toggle" id="menu-toggle"><i
+                        class="fa-solid fa-bars"></i></button></div>
+            <div class="header-center">
+                <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img
+                        src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>OpTra</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-user"><span>Sanjay Nichite</span><i class="fa-solid fa-circle-user fa-lg"></i></div>
+            </div>
+        </header>
+
+        <div class="content-wrapper" id="main-content">
+            <div class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 class="page-title">Footplate Inspection Form</h1>
+                <div class="score-display">Total Score: <span id="grand-total">0</span></div>
+            </div>
+
+            <form id="inspectionForm">
+                <!-- Employee Lookup -->
+                <div class="card mb-4">
+                    <div class="card-title"><i class="fa-solid fa-user-check"></i> Employee & Inspection Info</div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>Employee ID</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="text" id="employeeId" placeholder="Enter ID to lookup..." style="flex:1;">
+                                <button type="button" class="btn btn-secondary">Lookup</button>
+                            </div>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Employee Name</label>
+                            <input type="text" id="employeeName" disabled placeholder="Auto-filled name">
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Inspection Date</label>
+                            <input type="date" id="inspectionDate" value="2026-03-01">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part A: Driving Skill -->
+                <div class="inspection-section">
+                    <div class="inspection-header">
+                        <h3>Part A - Driving Skill</h3>
+                        <span class="text-muted">Max Score per item: 1</span>
+                    </div>
+                    <table class="inspection-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">No.</th>
+                                <th>Assessment Item</th>
+                                <th style="width: 100px; text-align: center;">Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sectionA-Driving">
+                            <tr>
+                                <td>1</td>
+                                <td>Starting /Stopping of train (Jerk free)</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Completing all pre departure checks within the specified time</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Activation & Deactivation of train Mainline/Depot</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Verifying status of door closure before departure</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Habit of checking of faults when pop up</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Efficient troubleshooting of train defects</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2" style="text-align: right;">Part A Total (Driving Skill)</td>
+                                <td style="text-align: center;" id="totalA1">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Part A: Safety -->
+                <div class="inspection-section">
+                    <div class="inspection-header">
+                        <h3>Part A - Safety</h3>
+                        <span class="text-muted">Max Score per item: 1</span>
+                    </div>
+                    <table class="inspection-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">No.</th>
+                                <th>Assessment Item</th>
+                                <th style="width: 100px; text-align: center;">Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sectionA-Safety">
+                            <tr>
+                                <td>1</td>
+                                <td>Following proper sign ON /Off Procedure</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a-s" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Notice Board Reading</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a-s" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Not using Mobile phone during driving</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-a-s" min="0"
+                                        max="1" value="0"></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2" style="text-align: right;">Part A Total (Safety)</td>
+                                <td style="text-align: center;" id="totalA2">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Part C: Rating by Line Manager -->
+                <div class="inspection-section">
+                    <div class="inspection-header">
+                        <h3>Part C - Rating by Nominated Line Manager</h3>
+                        <span class="text-muted">Max Score per item: 2</span>
+                    </div>
+                    <table class="inspection-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">No.</th>
+                                <th>Assessment Item</th>
+                                <th style="width: 100px; text-align: center;">Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sectionC">
+                            <tr>
+                                <td>1</td>
+                                <td>Any failure, showing lack of safety consciousness...</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-c" min="0"
+                                        max="2" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Alcoholic/smoking habit</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-c" min="0"
+                                        max="2" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Clean & tidy appearance</td>
+                                <td style="text-align: center;"><input type="number" class="score-input p-c" min="0"
+                                        max="2" value="0"></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2" style="text-align: right;">Part C Total</td>
+                                <td style="text-align: center;" id="totalC">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Observations -->
+                <div class="card">
+                    <div class="card-title"><i class="fa-solid fa-pen-to-square"></i> Observations & Actions</div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>General Observations</label>
+                            <textarea id="obsGeneral" rows="4" placeholder="Enter general observations"></textarea>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Defects Identified</label>
+                            <textarea id="obsDefects" rows="4" placeholder="List any defects identified"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Corrective Actions Required</label>
+                        <textarea id="obsCorrective" rows="3"
+                            placeholder="Enter corrective actions and next steps"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="margin-bottom: 3rem;">
+                    <button type="button" class="btn btn-secondary">Save Draft</button>
+                    <button type="button" id="submitInspectionBtn" class="btn btn-primary btn-lg"><i
+                            class="fa-solid fa-cloud-arrow-up"></i>
+                        Submit Final Inspection</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Simple script to auto-calculate totals for demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.score-input');
+            inputs.forEach(input => {
+                input.addEventListener('input', calculateTotals);
+            });
+
+            function calculateTotals() {
+                let totalA1 = 0, totalA2 = 0, totalC = 0;
+
+                document.querySelectorAll('.p-a').forEach(i => totalA1 += Number(i.value));
+                document.querySelectorAll('.p-a-s').forEach(i => totalA2 += Number(i.value));
+                document.querySelectorAll('.p-c').forEach(i => totalC += Number(i.value));
+
+                document.getElementById('totalA1').textContent = totalA1;
+                document.getElementById('totalA2').textContent = totalA2;
+                document.getElementById('totalC').textContent = totalC;
+
+                document.getElementById('grand-total').textContent = totalA1 + totalA2 + totalC;
+            }
+        });
+    </script>
+    <script src="to_inspection.js"></script>
+</body>
+
+</html>
