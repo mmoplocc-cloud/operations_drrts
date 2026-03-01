@@ -43,27 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
         errorContainer.style.display = 'none';
 
         try {
-            // Use local Python proxy to bypass browser CORS block on Supabase
-            const response = await fetch('http://localhost:8080/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email, password: passwordInput })
+            // Use native Supabase Auth now that the app is securely hosted
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: passwordInput
             });
 
-            const result = await response.json();
-
-            if (!response.ok) {
-                throw new Error(result.error || 'Authentication failed');
+            if (error) {
+                throw error;
             }
 
-            const sessionData = result.session;
+            // Successfully logged in! Now fetch user role from public.users table
+            const { data: userData, error: userError } = await supabase
+                .from('users')
+                .select('*')
+                .eq('id', data.user.id)
+                .single();
+
+            if (userError) {
+                console.warn('Could not fetch user role details. Assuming default role.', userError);
+            }
 
             // Store session details in localStorage for JS use
-            localStorage.setItem('user_id', sessionData.user_id);
-            localStorage.setItem('user_email', sessionData.email);
-            localStorage.setItem('user_name', sessionData.full_name);
-            localStorage.setItem('user_role', sessionData.role);
-            if (sessionData.employee_id) localStorage.setItem('employee_id', sessionData.employee_id);
+            localStorage.setItem('user_id', data.user.id);
+            localStorage.setItem('user_email', data.user.email);
+
+            if (userData) {
+                localStorage.setItem('user_name', userData.full_name || data.user.email);
+                localStorage.setItem('user_role', userData.role || 'manager');
+                if (userData.employee_id) localStorage.setItem('employee_id', userData.employee_id);
+            } else {
+                localStorage.setItem('user_name', data.user.email);
+                localStorage.setItem('user_role', 'manager');
+            }
 
             // Redirect to dashboard
             window.location.href = 'dashboard.html';
