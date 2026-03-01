@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpTra - TO Counselling</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <!-- Reusing sidebar structure -->
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="user-avatar"><i class="fa-solid fa-user-circle"></i></div>
+                <div class="user-info">
+                    <div class="user-name">Sanjay Nichite</div>
+                    <div class="user-id">ID: 30001133</div>
+                    <div class="user-dept">Dept: Traffic</div>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="instruction_master.html" class="nav-link"><i class="fa-solid fa-book"></i>
+                        <span>Instruction Master</span></a></li>
+                <li class="nav-item"><a href="competency_check.html" class="nav-link"><i
+                            class="fa-solid fa-check-to-slot"></i> <span>Competency Check</span></a></li>
+                <li class="nav-item"><a href="to_counselling.html" class="nav-link active"><i
+                            class="fa-solid fa-comments"></i> <span>TO Counselling</span></a></li>
+                <li class="nav-item"><a href="fault_analysis.html" class="nav-link"><i
+                            class="fa-solid fa-triangle-exclamation"></i> <span>Fault Analysis</span></a></li>
+                <li class="nav-item"><a href="to_performance.html" class="nav-link"><i
+                            class="fa-solid fa-chart-line"></i> <span>TO Performance</span></a></li>
+                <li class="nav-item"><a href="to_inspection.html" class="nav-link"><i
+                            class="fa-solid fa-clipboard-check"></i> <span>TO Inspection</span></a></li>
+                                <li class="nav-item nav-header">REPORTS</li>
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> <span>View Reports</span> <i class="fa-solid fa-chevron-down submenu-icon" style="margin-left: auto;"></i></a>
+                    <ul class="submenu-list">
+                        <li class="nav-item"><a href="employee_list.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Employee List</span></a></li>
+                        <li class="nav-item"><a href="to_competency_list.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>TO Competency</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Instruction Ack</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack_sheet.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Instruction Ack Sheet</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-header">ACCOUNT</li>
+                <li class="nav-item"><a href="employee_profile.html" class="nav-link"><i class="fa-solid fa-user"></i>
+                        <span>Employee Profile</span></a></li>
+                <li class="nav-item"><a href="change_password.html" class="nav-link"><i class="fa-solid fa-key"></i>
+                        <span>Change Password</span></a></li>
+                <li class="nav-item mt-auto"><a href="index.html" class="nav-link text-danger"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Log Out</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left"><button class="menu-toggle" id="menu-toggle"><i
+                        class="fa-solid fa-bars"></i></button></div>
+            <div class="header-center">
+                <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>OpTra</span></div>
+            </div>
+            <div class="header-right">
+                <div class="header-user"><span>Sanjay Nichite</span><i class="fa-solid fa-circle-user fa-lg"></i></div>
+            </div>
+        </header>
+
+        <div class="content-wrapper" id="main-content">
+            <div class="page-header">
+                <h1 class="page-title">TO Counselling</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Schedule Counselling Session</div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>Employee ID / Name</label>
+                            <input type="text" placeholder="Search employee...">
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Date & Time</label>
+                            <input type="datetime-local">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason / Topic for Counselling</label>
+                        <textarea rows="3" placeholder="Enter reason..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i>
+                            Schedule</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

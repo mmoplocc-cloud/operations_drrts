@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation (DB RRTS) | Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="login-page">
+
+    <div class="login-card">
+        <div class="login-header">
+            <div class="brand"
+                style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-main);">
+                <img src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 60px;">
+                <span style="font-size: 2rem;">Operations</span>
+            </div>
+            <p class="subtitle">(Operation)<br>DB RRTS</p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group" style="position: relative;">
+                <label for="username" class="sr-only" style="display:none;">User Name</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-envelope"
+                        style="position: absolute; left: 15px; top: 15px; color: var(--text-muted);"></i>
+                    <input type="text" id="username" name="username" placeholder="User Name" required
+                        style="padding-left: 40px;">
+                </div>
+            </div>
+
+            <div class="form-group" style="position: relative;">
+                <label for="password" class="sr-only" style="display:none;">Password</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-lock"
+                        style="position: absolute; left: 15px; top: 15px; color: var(--text-muted);"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" required
+                        style="padding-left: 40px;">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Sign In</button>
+        </form>
+
+        <div class="login-footer">
+            <a href="#">Forgot password?</a>
+            <span>Ver 2.0</span>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="login.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
