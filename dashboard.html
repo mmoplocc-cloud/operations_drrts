@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpTra - Dashboard</title>
+    <title>Operations - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -61,14 +61,20 @@
                         <i class="fa-solid fa-clipboard-check"></i> <span>TO Inspection</span>
                     </a>
                 </li>
-                                <li class="nav-item nav-header">REPORTS</li>
+                <li class="nav-item nav-header">REPORTS</li>
                 <li class="nav-item has-submenu">
-                    <a href="#" class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> <span>View Reports</span> <i class="fa-solid fa-chevron-down submenu-icon" style="margin-left: auto;"></i></a>
+                    <a href="#" class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> <span>View
+                            Reports</span> <i class="fa-solid fa-chevron-down submenu-icon"
+                            style="margin-left: auto;"></i></a>
                     <ul class="submenu-list">
-                        <li class="nav-item"><a href="employee_list.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Employee List</span></a></li>
-                        <li class="nav-item"><a href="to_competency_list.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>TO Competency</span></a></li>
-                        <li class="nav-item"><a href="instruction_ack.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Instruction Ack</span></a></li>
-                        <li class="nav-item"><a href="instruction_ack_sheet.html" class="nav-link"><i class="fa-regular fa-circle"></i> <span>Instruction Ack Sheet</span></a></li>
+                        <li class="nav-item"><a href="employee_list.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Employee List</span></a></li>
+                        <li class="nav-item"><a href="to_competency_list.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>TO Competency</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack</span></a></li>
+                        <li class="nav-item"><a href="instruction_ack_sheet.html" class="nav-link"><i
+                                    class="fa-regular fa-circle"></i> <span>Instruction Ack Sheet</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-header">ACCOUNT</li>
@@ -101,7 +107,9 @@
                 </button>
             </div>
             <div class="header-center">
-                <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>OpTra</span></div>
+                <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img
+                        src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>Operations</span>
+                </div>
             </div>
             <div class="header-right">
                 <div class="header-user">
@@ -120,7 +128,7 @@
             <div class="dashboard-grid">
                 <div class="widget card">
                     <div class="card-title">Welcome Back</div>
-                    <p>Select an option from the sidebar to begin navigating the OpTra (Operation and Training) portal.
+                    <p>Select an option from the sidebar to begin navigating the Operations (Operation and Training) portal.
                     </p>
                 </div>
 
@@ -132,10 +140,11 @@
         </div>
     </main>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-client.js"></script>
     <script src="app.js"></script>
+<script src="instruction_popup.js"></script>
 </body>
 
 </html>

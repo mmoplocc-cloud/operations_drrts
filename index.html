@@ -19,16 +19,16 @@
                 <img src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 60px;">
                 <span style="font-size: 2rem;">Operations</span>
             </div>
-            <p class="subtitle">(Operation)<br>DB RRTS</p>
+            <p class="subtitle">(DB RRTS)</p>
         </div>
 
         <form class="login-form" id="loginForm">
             <div class="form-group" style="position: relative;">
-                <label for="username" class="sr-only" style="display:none;">User Name</label>
+                <label for="username" class="sr-only" style="display:none;">Employee ID</label>
                 <div style="position: relative;">
-                    <i class="fa-solid fa-envelope"
+                    <i class="fa-solid fa-id-badge"
                         style="position: absolute; left: 15px; top: 15px; color: var(--text-muted);"></i>
-                    <input type="text" id="username" name="username" placeholder="User Name" required
+                    <input type="text" id="username" name="username" placeholder="Employee ID" required
                         style="padding-left: 40px;">
                 </div>
             </div>
@@ -47,8 +47,8 @@
         </form>
 
         <div class="login-footer">
-            <a href="#">Forgot password?</a>
-            <span>Ver 2.0</span>
+            <!-- <a href="#">Forgot password?</a> -->
+            <span>Ver 1.0</span>
         </div>
     </div>
 
@@ -57,6 +57,7 @@
     <script src="supabase-client.js"></script>
     <script src="login.js"></script>
     <script src="app.js"></script>
+<script src="instruction_popup.js"></script>
 </body>
 
 </html>

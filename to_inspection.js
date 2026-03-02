@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const employeeIdInput = document.getElementById('employeeId');
     const employeeNameInput = document.getElementById('employeeName');
+    const employeeDesignationInput = document.getElementById('employeeDesignation');
     const lookupBtn = employeeIdInput.nextElementSibling; // The button right next to the input
 
     lookupBtn.addEventListener('click', async () => {
@@ -12,15 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const { data, error } = await supabase
                 .from('employees')
-                .select('name')
+                .select('name, designation')
                 .eq('employee_id', id)
                 .single();
 
             if (data) {
                 employeeNameInput.value = data.name;
+                if (employeeDesignationInput) employeeDesignationInput.value = data.designation || '';
             } else {
                 alert('Employee not found in the database. Please verify the ID.');
                 employeeNameInput.value = '';
+                if (employeeDesignationInput) employeeDesignationInput.value = '';
             }
         } catch (err) {
             console.error(err);
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.addEventListener('click', async () => {
         const empId = employeeIdInput.value.trim();
         const empName = employeeNameInput.value.trim();
+        const empDesignation = employeeDesignationInput ? employeeDesignationInput.value.trim() : '';
         const dateStr = document.getElementById('inspectionDate').value;
 
         if (!empId || !empName) {
@@ -73,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. Insert into footplate_inspections
             const insertRecord = {
                 employee_id: empId,
+                designation: empDesignation,
                 inspection_date: dateStr,
                 inspected_by_user_id: userId,
                 inspected_by_name: userName,

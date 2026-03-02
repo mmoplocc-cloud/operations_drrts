@@ -565,3 +565,60 @@ h6 {
 .btn-secondary:hover {
     background-color: #cbd5e1;
 }
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet / Mobile Landscape / Phone */
+@media (max-width: 768px) {
+
+    /* Sidebar adjustments */
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        /* Hide completely */
+    }
+
+    .sidebar.mobile-active {
+        left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    /* Grid and Form layouts */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-group.half-width,
+    .form-group.third-width {
+        width: 100%;
+    }
+
+    /* Fix table scrolling */
+    .data-table,
+    .inspection-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Login Page Fixes for Mobile */
+    .login-card {
+        padding: 1.5rem;
+        width: 90%;
+    }
+}

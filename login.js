@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Assuming the streamlit app used email. We'll try it as is first.
         // If it's just numbers, it might be registered as id@mmo.com or similar. We'll just pass the input for now.
         let email = usernameInput;
-        // Basic check: if it looks like just an ID, many systems append a dummy email domain
+        // If the user entered an Employee ID (no '@' symbol), append a dummy domain for Supabase Auth
+        // This is a standard workaround since Supabase requires an email address natively.
         if (!email.includes('@')) {
-            // Uncomment the next line if a specific domain is required
-            // email = email + '@example.com'; 
+            email = email + '@operations.local';
         }
 
         loginBtn.disabled = true;

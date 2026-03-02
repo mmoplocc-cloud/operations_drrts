@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpTra - Employee List</title>
+    <title>Operations - Employee List</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -114,7 +114,7 @@
                         class="fa-solid fa-bars"></i></button></div>
             <div class="header-center">
                 <div class="brand" style="display:flex; align-items:center; gap:0.5rem;"><img
-                        src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>OpTra</span>
+                        src="images/deutsche-bahn-logo.png" alt="DB Logo" style="height: 24px;"> <span>Operations</span>
                 </div>
             </div>
             <div class="header-right">
@@ -154,51 +154,22 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="employeeTableBody">
                         <tr>
-                            <td>30001133</td>
-                            <td>Sanjay Nichite</td>
-                            <td>Traffic</td>
-                            <td>Train Operator</td>
-                            <td><span class="status-badge status-active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td>30001134</td>
-                            <td>Priya Sharma</td>
-                            <td>Maintenance</td>
-                            <td>Technician</td>
-                            <td><span class="status-badge status-active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td>30001135</td>
-                            <td>Rahul Desai</td>
-                            <td>Traffic</td>
-                            <td>Train Operator</td>
-                            <td><span class="status-badge status-inactive">On Leave</span></td>
-                        </tr>
-                        <tr>
-                            <td>30001136</td>
-                            <td>Amit Patel</td>
-                            <td>Traffic</td>
-                            <td>Station Controller</td>
-                            <td><span class="status-badge status-active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td>30001137</td>
-                            <td>Neha Gupta</td>
-                            <td>Maintenance</td>
-                            <td>Engineer</td>
-                            <td><span class="status-badge status-active">Active</span></td>
+                            <td colspan="5" style="text-align: center;"><i class="fa-solid fa-spinner fa-spin"></i>
+                                Loading employees...</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-client.js"></script>
     <script src="app.js"></script>
+    <script src="employee_list.js"></script>
+<script src="instruction_popup.js"></script>
 </body>
 
 </html>
